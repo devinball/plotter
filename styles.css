@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+button {
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button.secondary {
+  background: #2196f3;
+}
+
+button.secondary:hover {
+  background: #0b7dda;
+}
+
+button.danger {
+  background: #f44336;
+}
+
+button.danger:hover {
+  background: #da190b;
+}
+
+.expression-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+
+.expression-controls {
+  width: 10%;
+  float: right;
+}
+
+.math-edit-box {
+  width: 85%;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+}
+
+.expression-item.disabled {
+  opacity: 0.5;
+  border-left-color: #666;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+.add-button {
+  width: 100%;
+  background: #2196f3;
+}
+
+.add-button:hover {
+  background: #0b7dda;
+}

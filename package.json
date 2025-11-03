@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@cortex-js/compute-engine": "^0.29.1",
+    "@mathjax/mathjax-stix2-font": "^4.0.0",
+    "mathjs": "^15.0.0",
+    "mathlive": "^0.107.1",
+    "tex-math-parser": "^2.0.5",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.10"
+  }
+}
