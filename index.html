@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plotter</title>
     <link href="./styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/mathquill/build/mathquill.css"/>
+    <link href="./math.css" rel="stylesheet">
   </head>
   <body>
+    <div class="controls">
+      <button id="save-button">Save</button>
+      <button id="load-button">Load</button>
+    </div>
     <div id="sidebar">
         <div id="expression-list"></div>
         <button class="add-button" id="add-expression-button">+ Add Expression</button>
@@ -14,7 +20,8 @@
     <!--
     <textarea id="text-area"></textarea>
     -->
-    <script src="//unpkg.com/mathlive"></script>
-    <script type="module" src="/test.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/mathquill/build/mathquill.js"></script>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

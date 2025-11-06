@@ -4,6 +4,7 @@
     "@mathjax/mathjax-stix2-font": "^4.0.0",
     "mathjs": "^15.0.0",
     "mathlive": "^0.107.1",
+    "mathquill": "^0.10.1-a",
     "tex-math-parser": "^2.0.5",
     "three": "^0.180.0"
   },

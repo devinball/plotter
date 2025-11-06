@@ -7,17 +7,18 @@ body {
 #sidebar {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 400px;
-  height: 100vh;
+  height: 100%;
+  overflow: scroll;
   background: rgba(0, 0, 0, 0.35);
+  resize: horizontal;
 }
 
 button {
   border: none;
-  width: 25px;
-  height: 25px;
   border-radius: 4px;
+  padding: 3px;
   cursor: pointer;
   font-size: 0.9rem;
 }
@@ -38,29 +39,34 @@ button.danger:hover {
   background: #da190b;
 }
 
-.expression-item {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-bottom: 2px solid black;
+.delete-button {
+  outline: none;
+  border: none;
+  color: gray;
+  background: none;
+  font-size: 2.0rem;
+  display: flex;
 }
 
-.expression-controls {
-  width: 10%;
-  float: right;
+.delete-button span {
+  line-height: 1.3rem;
+}
+
+.expression-item {
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  border: 1px rgb(212, 212, 212) solid;
 }
 
 .math-edit-box {
-  width: 85%;
-  height: 2.5rem;
-  font-size: 1.2rem;
+  float: left;
+  display: block;
+  border: none;
+  outline: none;
   padding: 5px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 4px;
-}
-
-.expression-item.disabled {
-  opacity: 0.5;
-  border-left-color: #666;
+  width: 100%;
+  font-size: 1.5rem;
+  min-height: 1.75rem;
 }
 
 .error-message {
@@ -75,4 +81,10 @@ button.danger:hover {
 
 .add-button:hover {
   background: #0b7dda;
+}
+
+.controls {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

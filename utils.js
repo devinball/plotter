@@ -36,7 +36,7 @@ export function IntensityColor(intensity, minIntensity = 0, maxIntensity = 100) 
     return color;
 }
 
-export function getGridMaterial() {
+export function getGridMaterial(xSize, ySize) {
     const loader = new THREE.TextureLoader();
     const texture = loader.load('checker.jpg');
     texture.colorSpace = THREE.SRGBColorSpace;
@@ -44,10 +44,10 @@ export function getGridMaterial() {
     texture.magFilter = THREE.NearestFilter;
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(10, 10); // Adjust tiling
+    texture.repeat.set(xSize, ySize); // Adjust tiling
         
     return new THREE.MeshPhongMaterial({
-        reflectivity: 0.5,
+        reflectivity: 1,
         map: texture,
         side: THREE.DoubleSide
     });
@@ -103,7 +103,7 @@ export function Arrow3D(direction, origin, length, color, tailWidth = 0.05, head
 export function Line3D(points, radius = 0.1, color = 0x00ff00, segments = 8) {
     const curve = new THREE.CatmullRomCurve3(points);
     const tubeGeometry = new THREE.TubeGeometry(curve, points.length * 2, radius, segments, false);
-    const material = new THREE.MeshBasicMaterial({ color: color });
+    const material = getColorMaterial(color);
     const tubeMesh = new THREE.Mesh(tubeGeometry, material);
     return tubeMesh;
 }
