@@ -1,10 +1,4 @@
-import {
-    ParametricLine3D,
-    ParametricSurface3D,
-    Point3D,
-    Surface3D,
-    VectorField3D,
-} from "./plots.js";
+import { ParametricLine3D, ParametricSurface3D, Point3D, Surface3D, VectorField3D } from "./plots.js";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import { plots } from "./scene.js";
 
@@ -14,14 +8,7 @@ function declarePlots() {
     ce.declare("surface", {
         signature:
             "(expression, number?, number?, number?, number?, number?) -> any",
-        evaluate: ([
-            expr,
-            x0 = -10,
-            x1 = 10,
-            y0 = -10,
-            y1 = 10,
-            resolution = 100,
-        ]) => {
+        evaluate: ([expr, x0 = -10, x1 = 10, y0 = -10, y1 = 10, resolution = 100]) => {
             const c = ce.box(expr).compile();
             const f = (x, y) => c({ x: x, y: y });
             Surface3D(f, x0.value, x1.value, y0.value, y1.value, resolution.value);
@@ -36,7 +23,7 @@ function declarePlots() {
             ParametricLine3D(f, t0.value, t1.value);
         },
     });
-
+ 
     ce.declare("parametricsurface", {
         signature:
             "(expression, number?, number?, number?, number?, number?) -> any",
@@ -186,17 +173,6 @@ function declarePlots() {
             console.log(f());
         },
     });
-}
-
-export function getMacros() {
-    return {
-        surface: "\\operatorname{surface3d}",
-        sl3: "\\operatorname{parametricLine3d}",
-        ps3: "\\operatorname{parametricSurface3d}",
-        o: "\\operatorname{output}",
-        vf3: "\\operatorname{vectorField3d}",
-        p3: "\\operatorname{point3d}",
-    };
 }
 
 export function clearScope() {

@@ -1,4 +1,4 @@
-import { newExpression, expressionContext, getMacros } from "./expressions.js"
+import { newExpression, expressionContext } from "./expressions.js"
 
 function addExpressionBox() {
     const expression = newExpression()
@@ -87,7 +87,6 @@ function removeExpressionBox(id) {
     expressionContext.remove(id);
 }
 
-// we use order instead of id here
 function moveFocusTo(order) {
     expressionContext.expressions.forEach(e => {
         if (e.order == order) {

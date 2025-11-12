@@ -5,23 +5,39 @@ import * as THREE from 'three';
 export function VectorField3D(f, x0 = -5, x1 = 5, y0 = -5, y1 = 5, z0 = -5, z1 = 5) {
     const group = new THREE.Group();
 
+    let open = [];
+    let maxMag = 0
+
     for (let x = x0; x <= x1; x++) {
         for (let y = z0; y <= z1; y++) {
             for (let z = y0; z <= y1; z++) {
                 const origin = new THREE.Vector3(x, y, z);
-                const dir = new THREE.Vector3(...f(x, y, z));
+                const dir = new THREE.Vector3(...flipCoords(...f(x, z, y)));
                 const magnitude = dir.length();
-                const arrow = Arrow3D( dir, origin, 0.75, IntensityColor(magnitude / 0.0625, 0, 100), 0.01, 0.15, 0.075
-                );
 
-                if (magnitude === 0) {
-                    arrow.visible = false;
+                if (magnitude > maxMag && magnitude != Infinity  && magnitude != NaN) {
+                    maxMag = magnitude;
                 }
 
-                group.add(arrow);
+                open.push({
+                    origin: origin,
+                    dir: dir,
+                    magnitude, magnitude
+                });
             }
         }
     }
+
+    console.log(maxMag)
+
+    open.forEach((e) => {
+        if (e.magnitude !== 0) {
+            group.add(Arrow3D(e.dir, e.origin, 0.75, IntensityColor(e.magnitude / maxMag, 0, 1), 0.01, 0.15, 0.075));
+        }
+    });
+
+    
+
 
     plots.add(group);
 }
