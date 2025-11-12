@@ -1,4 +1,6 @@
-import { newExpression, expressionContext } from "./expressions.js"
+import { newExpression, expressionContext } from "./expressions.js";
+
+const MQ = MathQuill.getInterface(2);
 
 function addExpressionBox() {
     const expression = newExpression()
@@ -22,8 +24,6 @@ function addExpressionBox() {
     const basic_greek = ' alpha beta gamma delta theta rho phi pi tau omega'
     const logic = ' forall mapsto reals in'
     const operators = ' prod sqrt sum int pm nabla div vec cdot partial infinity'
-
-    var MQ = MathQuill.getInterface(2);
 
     var mathField = MQ.MathField(document.getElementById(`math-field-${expression.id}`), {
         spaceBehavesLikeTab: true,

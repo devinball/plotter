@@ -5,6 +5,8 @@
 - 2d plots
 - vector field auto color scaling
 - 2d & 3d shape plots
+- 4d plots and imaginart plots
+
 
 
 

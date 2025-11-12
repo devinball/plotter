@@ -28,16 +28,11 @@ export function VectorField3D(f, x0 = -5, x1 = 5, y0 = -5, y1 = 5, z0 = -5, z1 =
         }
     }
 
-    console.log(maxMag)
-
     open.forEach((e) => {
         if (e.magnitude !== 0) {
             group.add(Arrow3D(e.dir, e.origin, 0.75, IntensityColor(e.magnitude / maxMag, 0, 1), 0.01, 0.15, 0.075));
         }
     });
-
-    
-
 
     plots.add(group);
 }
