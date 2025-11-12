@@ -1,4 +1,5 @@
 import { newExpression, expressionContext } from "./expressions.js";
+import "mathquill/build/mathquill.js";
 
 const MQ = MathQuill.getInterface(2);
 
