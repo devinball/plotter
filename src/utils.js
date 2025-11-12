@@ -38,7 +38,7 @@ export function IntensityColor(intensity, minIntensity = 0, maxIntensity = 100) 
 
 export function getGridMaterial(xSize, ySize) {
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('public/checker.jpg');
+    const texture = loader.load('./public/checker.jpg');
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.NearestFilter;
     texture.magFilter = THREE.NearestFilter;
